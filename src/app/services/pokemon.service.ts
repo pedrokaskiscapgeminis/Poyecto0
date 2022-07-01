@@ -1,0 +1,40 @@
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+@Injectable({
+  providedIn: 'root'
+})
+export class PokemonService {
+  private pok:any
+  private patron:string = ""
+  private carrito:any[] = []
+  private urlPokemon = "https://pokeapi.co/api/v2/pokemon"
+  constructor(private http:HttpClient) { 
+    
+    http.get(this.urlPokemon).subscribe((response:any)=>{
+      this.pok = response.results
+      
+    })
+  }
+  getPokemon(){
+    
+    return this.http.get(`https://pokeapi.co/api/v2/pokemon`);
+  }
+  addToCarrito(pokemon:any){
+    if(!this.carrito.find((i:any)=>i.name == pokemon.name)){
+      this.carrito.push({
+        name:pokemon.name
+      })
+    }
+}
+getCarrito(){
+  console.log(this.carrito)
+  return this.carrito
+  
+}
+setPatron(unPatron:string){
+  this.patron = unPatron
+}
+getPatron(){
+  return this.patron
+}
+}
