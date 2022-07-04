@@ -1,5 +1,5 @@
 import { CarritoModel } from './carrito.interface';
 
-export interface CarritoState { 
+export interface CarritoState {
   carrito: ReadonlyArray<CarritoModel>;
 }

@@ -32,7 +32,6 @@ export class CartaPokComponent implements OnInit {
     
     
     this.store.dispatch(addToCart({carrit}));
-  
     this.carrito$ = this.store.select(selectListCarrito);
    
   }

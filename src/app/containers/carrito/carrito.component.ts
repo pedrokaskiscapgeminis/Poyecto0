@@ -3,6 +3,7 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { AppState } from 'src/app/core/models/app.state';
 import { PokemonService } from 'src/app/services/pokemon.service';
+import { Delete } from 'src/app/state/actions/carrito.actions';
 import { decrement } from 'src/app/state/actions/counter.actions';
 import { selectListCarrito } from 'src/app/state/selectors/carrito.selectors';
 
@@ -25,8 +26,8 @@ export class CarritoComponent implements OnInit {
   onDecrement() {
     this.store.dispatch(decrement());
   }
- removePokes(Pokes:any){
-  return this.BDPokemon.removePokes(Pokes)
+  DeletePok(carri:any){
+    this.store.dispatch(Delete({carri}))
  }
  setPatron(unPatron:string){
   this.BDPokemon.setPatron(unPatron)

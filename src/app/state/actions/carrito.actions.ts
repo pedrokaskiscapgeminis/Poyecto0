@@ -11,6 +11,10 @@ export const addToCart = createAction(
   '[Carrito List] Add to Cart',
   props<{ carrit: CarritoModel }>()
 );
+export const Delete = createAction(
+  '[Carrito List] Delete to Cart',
+  props<{ carri: CarritoModel }>()
+);
 
 
 
