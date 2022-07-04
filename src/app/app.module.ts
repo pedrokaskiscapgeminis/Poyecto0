@@ -11,11 +11,14 @@ import { CartaPokComponent } from './containers/carta-pok/carta-pok.component';
 import { pokemonsReducer } from './state/reducers/pokemons.reducer';
 import { counterReducer } from './state/reducers/counter.reducer';
 import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
 import { HttpClientModule } from '@angular/common/http';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools'
 import { environment } from 'src/environments/environment';
 import { CarritoComponent } from './containers/carrito/carrito.component';
 import { BuscadorPipe } from './filtros/buscador.pipe';
+import { ComparadorPipe } from './filtros/comparador.pipe';
+import { pokeEffects } from './state/effects/poke.effects';
 
 @NgModule({
   declarations: [
@@ -26,12 +29,14 @@ import { BuscadorPipe } from './filtros/buscador.pipe';
     NavMenuComponent,
     CartaPokComponent,
     CarritoComponent,
-    BuscadorPipe
+    BuscadorPipe,
+    ComparadorPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     StoreModule.forRoot({pokemons: pokemonsReducer, counter: counterReducer}),
+    EffectsModule.forRoot([pokeEffects]),
    
     HttpClientModule,
     StoreDevtoolsModule.instrument({
