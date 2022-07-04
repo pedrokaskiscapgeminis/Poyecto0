@@ -17,17 +17,10 @@ export class ListadoComponent implements OnInit {
   constructor(private store: Store<AppState>, private pokemonService: PokemonService) { }
 
   ngOnInit(): void {
-  
-  
-
-    /*let a = this.pokemonService.getPokemon()
-    this.store.dispatch(loadedPokemons({ pokemons: a }));
-    this.pokemons$ = this.store.select(selectListPokemons);
-    return a*/
-    this.pokemonService.getPokemon().subscribe((res: any) => {
+    this.pokemonService.getPokemon().subscribe((res: any) => {//No funciona el effects por eso dejo esto
       this.store.dispatch(loadedPokemons({ pokemons: res.results }));
-
       this.pokemons$ = this.store.select(selectListPokemons);
+      
   });
   }
   setPatron(unPatron:string){

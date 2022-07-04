@@ -19,6 +19,7 @@ import { CarritoComponent } from './containers/carrito/carrito.component';
 import { BuscadorPipe } from './filtros/buscador.pipe';
 import { ComparadorPipe } from './filtros/comparador.pipe';
 import { pokeEffects } from './state/effects/poke.effects';
+import { carritoReducer } from './state/reducers/carrito.reducer';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,7 @@ import { pokeEffects } from './state/effects/poke.effects';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    StoreModule.forRoot({pokemons: pokemonsReducer, counter: counterReducer}),
+    StoreModule.forRoot({pokemons: pokemonsReducer, counter: counterReducer,carrito: carritoReducer}),
     EffectsModule.forRoot([pokeEffects]),
    
     HttpClientModule,

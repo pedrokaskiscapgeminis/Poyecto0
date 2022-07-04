@@ -24,4 +24,11 @@ export class CarritoComponent implements OnInit {
  removePokes(Pokes:any){
   return this.BDPokemon.removePokes(Pokes)
  }
+ setPatron(unPatron:string){
+  this.BDPokemon.setPatron(unPatron)
+
+}
+ getPatron(){
+  return this.BDPokemon.getPatron()
+ }
 }

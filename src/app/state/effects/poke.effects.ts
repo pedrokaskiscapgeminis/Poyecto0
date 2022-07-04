@@ -10,7 +10,7 @@ export class pokeEffects {
     ofType(''),//aqui iría el loaded, pero no lo tengo creado jejeje
     mergeMap(() => this.BDPokemons.getPokemon()
       .pipe(
-        map(pokes => ({ type: 'increment', payload: pokes })),
+        map(pokes => ({ type: '[Pokemon List] Loaded success', pokes })),
         catchError(() => EMPTY)
       ))
     )
