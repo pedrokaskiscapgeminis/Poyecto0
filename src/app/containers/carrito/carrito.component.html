@@ -4,7 +4,6 @@
     <div class="col-3">
       <div class="input-group mb-3">
         <input type="text" class="form-control" placeholder="Busca el poke" aria-label="Recipient's username" aria-describedby="button-addon2">
-        <button class="btn btn-outline-primary" type="button" id="button-addon2">Buscar</button>
       </div>
     </div>
   </div>
@@ -13,7 +12,8 @@
 	<div class="card-body">
     
          
-        <h5 class="card-title"> {{carrito.name}}</h5>
+        <h5 class="card-title"> {{carrito.name}} </h5>
+        <button (click)="onDecrement();removePokes(carrito)" class="btn btn-outline-primary" type="button" id="button-addon2">Eliminar</button>
         <p class="card-text fw-bold"></p>
   
   </div>

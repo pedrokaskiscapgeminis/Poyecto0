@@ -28,8 +28,11 @@ export class PokemonService {
       })
     }
 }
+removePokes(Pokes:any){
+ this.carrito = this.carrito.filter(p=>p.name != Pokes.name)
+}
 getCarrito(){
-  console.log(this.carrito)
+ 
   return this.carrito
   
 }

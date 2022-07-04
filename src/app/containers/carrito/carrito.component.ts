@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
 import { PokemonService } from 'src/app/services/pokemon.service';
+import { decrement } from 'src/app/state/actions/counter.actions';
 
 @Component({
   selector: 'app-carrito',
@@ -8,7 +10,7 @@ import { PokemonService } from 'src/app/services/pokemon.service';
 })
 export class CarritoComponent implements OnInit {
 
-  constructor(private BDPokemon:PokemonService) { }
+  constructor(private BDPokemon:PokemonService,private store: Store<{ counter: { counter: number } }>) { }
 
   ngOnInit(): void {
   }
@@ -16,4 +18,10 @@ export class CarritoComponent implements OnInit {
  
     return this.BDPokemon.getCarrito()
   }
+  onDecrement() {
+    this.store.dispatch(decrement());
+  }
+ removePokes(Pokes:any){
+  return this.BDPokemon.removePokes(Pokes)
+ }
 }
