@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Store } from '@ngrx/store';
+import { increment } from '../state/actions/counter.actions';
 @Injectable({
   providedIn: 'root'
 })
@@ -37,4 +39,5 @@ setPatron(unPatron:string){
 getPatron(){
   return this.patron
 }
+
 }

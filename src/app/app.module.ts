@@ -9,6 +9,7 @@ import { ListadoComponent } from './components/listado/listado.component';
 import { NavMenuComponent } from './components/nav-menu/nav-menu.component';
 import { CartaPokComponent } from './containers/carta-pok/carta-pok.component';
 import { pokemonsReducer } from './state/reducers/pokemons.reducer';
+import { counterReducer } from './state/reducers/counter.reducer';
 import { StoreModule } from '@ngrx/store';
 import { HttpClientModule } from '@angular/common/http';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools'
@@ -30,7 +31,8 @@ import { BuscadorPipe } from './filtros/buscador.pipe';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    StoreModule.forRoot({pokemons: pokemonsReducer }),
+    StoreModule.forRoot({pokemons: pokemonsReducer, counter: counterReducer}),
+   
     HttpClientModule,
     StoreDevtoolsModule.instrument({
       maxAge: 25, // Retains last 25 states
