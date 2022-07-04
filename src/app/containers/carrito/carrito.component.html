@@ -7,7 +7,7 @@
       </div>
     </div>
   </div>
-  <ng-container  *ngFor="let carrito of getCarrito() |  buscador:getPatron() ">
+  <ng-container  *ngFor="let carrito of carrito$ | async |  buscador:getPatron() ">
   <div class="card text-center bg-light pt-2 pr-2 mb-2 mr-2">
 	<div class="card-body">
     

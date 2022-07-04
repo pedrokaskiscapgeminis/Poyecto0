@@ -7,6 +7,10 @@ export const loadedCarrito = createAction(
   '[Carrito List] Loaded success',
   props<{ carrito: CarritoModel[] }>()
 );
+export const addToCart = createAction(
+  '[Carrito List] Add to Cart',
+  props<{ carrit: CarritoModel }>()
+);
 
 
 

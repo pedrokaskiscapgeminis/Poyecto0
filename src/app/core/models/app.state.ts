@@ -5,5 +5,6 @@ import { PokemonsState } from './pokemons.state';
 // Esto son datos que cualquier componente de la APP podrá consumir
 export interface AppState {
   pokemons: PokemonsState;
+  carrito: CarritoState
 }
 

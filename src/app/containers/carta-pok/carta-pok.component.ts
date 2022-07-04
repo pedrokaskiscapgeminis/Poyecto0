@@ -1,9 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { AppCarState } from 'src/app/core/models/appCar.state';
+import { AppState } from 'src/app/core/models/app.state';
 import { PokemonService } from 'src/app/services/pokemon.service';
 import { loadedCarrito } from 'src/app/state/actions/carrito.actions';
+import { addToCart } from 'src/app/state/actions/carrito.actions';
 import { increment } from 'src/app/state/actions/counter.actions';
 import { selectListCarrito } from 'src/app/state/selectors/carrito.selectors';
 import { selectListPokemons } from 'src/app/state/selectors/pokemons.selectors';
@@ -21,16 +22,16 @@ export class CartaPokComponent implements OnInit {
   carrito$: Observable<any> = new Observable();
   
   pokemons$:Observable<any> = new Observable();
-  constructor(private BDPokemons:PokemonService,private store: Store<AppCarState>) { }
+  constructor(private store: Store<AppState>) { }
 
   ngOnInit(): void {
     
     
   }
-  addToCarrito(poke:any){
+  addToCarrito(carrit:any){
     
-    this.BDPokemons.addToCarrito(poke)
-    this.store.dispatch(loadedCarrito(poke));
+    
+    this.store.dispatch(addToCart({carrit}));
   
     this.carrito$ = this.store.select(selectListCarrito);
    

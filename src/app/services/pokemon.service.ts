@@ -19,13 +19,7 @@ export class PokemonService {
     
     return this.http.get(`https://pokeapi.co/api/v2/pokemon`);
   }
-  addToCarrito(pokemon:any){
-    if(!this.carrito.find((i:any)=>i.name == pokemon.name)){
-      this.carrito.push({
-        name:pokemon.name
-      })
-    }
-}
+ 
 removePokes(Pokes:any){
  this.carrito = this.carrito.filter(p=>p.name != Pokes.name)
 }
