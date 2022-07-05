@@ -10,7 +10,7 @@ export class pokeEffects {
     ofType('[Pokemon List] Load success'),//aqui iría el loaded, pero no lo tengo creado jejeje
     mergeMap(() => this.BDPokemons.getPokemon()
       .pipe(
-        map(pokes => ({ type: '[Pokemon List] Loaded success', pokes })),
+        map((pokemons:any) => ({ type: '[Pokemon List] Loaded success', pokemons: pokemons.results, })),
         catchError(() => EMPTY)
       ))
     )

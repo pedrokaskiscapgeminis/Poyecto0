@@ -20,11 +20,10 @@ export class ListadoComponent implements OnInit {
   ngOnInit(): void {
     this.loading$=this.store.select(selectLoadingPokemons)
     this.store.dispatch(loadPokemon())
-    this.pokemonService.getPokemon().subscribe((res: any) => {//No funciona el effects por eso dejo esto
-      this.store.dispatch(loadedPokemons({ pokemons: res.results }));
+
       this.pokemons$ = this.store.select(selectListPokemons);
       
-  });
+
   }
   setPatron(unPatron:string){
     this.pokemonService.setPatron(unPatron)
