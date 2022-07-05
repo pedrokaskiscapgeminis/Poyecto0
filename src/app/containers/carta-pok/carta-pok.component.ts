@@ -35,7 +35,8 @@ export class CartaPokComponent implements OnInit {
     this.carrito$ = this.store.select(selectListCarrito);
    
   }
-  onIncrement() {
-    this.store.dispatch(increment());
+  onIncrement(incre:any) {
+    this.store.dispatch(increment({incre}));
+    console.log(incre)
   }
 }

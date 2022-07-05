@@ -1,13 +1,29 @@
 import { createReducer, on } from '@ngrx/store';
+import { CarritoState } from 'src/app/core/models/carrito.state';
 import { increment, decrement } from '../actions/counter.actions';
-import { initialState } from 'src/app/core/models/counter.state';
 
+
+
+export const initialState: CarritoState = {
+  carrito: [],
+  counter: 0
+};
 const _counterReducer = createReducer(
   initialState,
-  on(increment, (state: any) => {
+  
+  on(increment, (state: any,{incre}) => {
+    const otra = state.carrito.filter((pk: { name: string; }) =>{
+      return pk.name != incre.name;
+    });
     return {
+      
       ...state,
-      counter: state.counter + 1,
+     
+
+        counter:state.counter + 1,
+
+  
+     
     };
   }),
   on(decrement, (state: any) => {

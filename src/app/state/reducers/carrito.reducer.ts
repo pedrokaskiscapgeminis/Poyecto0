@@ -4,7 +4,10 @@ import { loadedCarrito} from '../actions/carrito.actions';
 import { addToCart} from '../actions/carrito.actions';
 import { Delete} from '../actions/carrito.actions';
 
-export const initialState: CarritoState = { carrito: [] };
+export const initialState: CarritoState = {
+  carrito: [],
+  counter: 0
+};
 
 
 export const carritoReducer = createReducer(
