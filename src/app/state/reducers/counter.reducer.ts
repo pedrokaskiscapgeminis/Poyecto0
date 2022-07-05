@@ -6,7 +6,8 @@ import { increment, decrement } from '../actions/counter.actions';
 
 export const initialState: CarritoState = {
   carrito: [],
-  counter: 0
+  counter: 0,
+  loading: false
 };
 const _counterReducer = createReducer(
   initialState,

@@ -1,22 +1,22 @@
 import { createReducer, on } from '@ngrx/store';
 import { CarritoState } from 'src/app/core/models/carrito.state';
-import { loadedCarrito} from '../actions/carrito.actions';
+import { loadCarrito, loadedCarrito} from '../actions/carrito.actions';
 import { addToCart} from '../actions/carrito.actions';
 import { Delete} from '../actions/carrito.actions';
 
 export const initialState: CarritoState = {
   carrito: [],
-  counter: 0
+  counter: 0,
+  loading: false
 };
 
 
 export const carritoReducer = createReducer(
   initialState,
-  on(loadedCarrito, (state, { carrito }) => {
-   
-    return { ...state, carrito };
-    
+  on(loadCarrito,(state)=>{
+    return {...state, false:false}
   }),
+
   on(addToCart, (state, { carrit }) => {
     const otra = state.carrito.filter((pk) =>{
       return pk.name != carrit.name;
@@ -24,12 +24,14 @@ export const carritoReducer = createReducer(
     return {
 
       ...state,
-
+      loading:true,
       carrito: [
 
         ...otra,
 
         ...[carrit],
+
+        
 
       ],
 

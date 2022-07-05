@@ -2,6 +2,10 @@ import { createAction, props } from '@ngrx/store';
 import { CarritoModel } from 'src/app/core/models/carrito.interface';
 
 
+export const loadCarrito = createAction(
+  '[Carrito List] Load success',
+  
+);
 
 export const loadedCarrito = createAction(
   '[Carrito List] Loaded success',

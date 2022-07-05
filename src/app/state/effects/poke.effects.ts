@@ -7,7 +7,7 @@ import { PokemonService } from 'src/app/services/pokemon.service';
 export class pokeEffects {
  
   loadPokes$ = createEffect(() => this.actions$.pipe(
-    ofType(''),//aqui iría el loaded, pero no lo tengo creado jejeje
+    ofType('[Pokemon List] Load success'),//aqui iría el loaded, pero no lo tengo creado jejeje
     mergeMap(() => this.BDPokemons.getPokemon()
       .pipe(
         map(pokes => ({ type: '[Pokemon List] Loaded success', pokes })),

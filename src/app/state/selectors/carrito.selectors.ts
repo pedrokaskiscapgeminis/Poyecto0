@@ -11,6 +11,12 @@ export const selectListCarrito = createSelector(
     return state.carrito;
   }
 );
+export const selectLoadingCarrito = createSelector(
+  selectCarritoFeature,
+  (state: CarritoState) => {
+    return state.loading;
+  }
+);
 
 
 

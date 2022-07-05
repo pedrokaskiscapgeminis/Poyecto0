@@ -1,4 +1,5 @@
 export interface CarritoModel {
-    name: string;
+  loading: boolean;
+  name: string;
   }
   

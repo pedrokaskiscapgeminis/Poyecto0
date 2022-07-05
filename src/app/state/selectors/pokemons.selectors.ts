@@ -11,6 +11,13 @@ export const selectListPokemons = createSelector(
     return state.pokemons;
   }
 );
+export const selectLoadingPokemons = createSelector(
+  selectPokemonsFeature,
+  (state: PokemonsState) => {
+    return state.loading;
+  }
+);
+
 
 
 
