@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { AppState } from 'src/app/core/models/app.state';
@@ -18,7 +19,7 @@ export class CarritoComponent implements OnInit {
   loading$:Observable<boolean> = new Observable;
   carrito$: Observable<any> = new Observable();
   detalles$: Observable<any> = new Observable();
-  constructor(private BDPokemon:PokemonService,private store: Store<AppState>) { }
+  constructor(private BDPokemon:PokemonService,private store: Store<AppState>,private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.loading$=this.store.select(selectLoadingCarrito);

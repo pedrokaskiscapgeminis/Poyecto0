@@ -18,10 +18,10 @@ export class pokeEffects {
     )
   );
   loadDetalles$ = createEffect(() => this.actions$.pipe(
-    ofType(loadedPokemon),
-    mergeMap((action) => this.BDPokemons.Detalles(action.name)
+    ofType('[Detalles List] Load success'),
+    mergeMap(() => this.BDPokemons.SetDetalles()
       .pipe(
-        map((detalles:any) => ({ type: '[Detalles List] Load success', detalles:detalles.abilities })),
+        map((detalles:any) => ({ type: '[Detalles List] Loaded success', detalles:detalles.abilities })),
         catchError(() => EMPTY)
       ))
     )

@@ -24,6 +24,9 @@ export class PokemonService {
     console.log(name)
     return this.http.get("https://pokeapi.co/api/v2/pokemon/" + name)
   }
+  SetDetalles(){
+    return this.http.get("https://pokeapi.co/api/v2/pokemon/bulbasaur")
+  }
 
 removePokes(Pokes:any){
  this.carrito = this.carrito.filter(p=>p.name != Pokes.name)
