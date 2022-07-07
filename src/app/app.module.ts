@@ -14,7 +14,6 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { HttpClientModule } from '@angular/common/http';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools'
-
 import { CarritoComponent } from './containers/carrito/carrito.component';
 import { BuscadorPipe } from './filtros/buscador.pipe';
 import { ComparadorPipe } from './filtros/comparador.pipe';

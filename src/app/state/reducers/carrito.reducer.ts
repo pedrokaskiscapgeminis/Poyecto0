@@ -2,11 +2,11 @@ import { createReducer, on } from '@ngrx/store';
 import { CarritoState } from 'src/app/core/models/carrito.state';
 import { loadCarrito, loadedCarrito} from '../actions/carrito.actions';
 import { addToCart} from '../actions/carrito.actions';
+import { getCartItems} from '../actions/carrito.actions';
 import { Delete} from '../actions/carrito.actions';
 
 export const initialState: CarritoState = {
   carrito: [],
-  counter: 0,
   loading: false
 };
 
@@ -53,6 +53,13 @@ export const carritoReducer = createReducer(
 
     };
 
+  }),
+  on(getCartItems, (state) => {
+    return {
+      ...state,
+      loading: false,
+      error: false,
+    };
   }),
   
   

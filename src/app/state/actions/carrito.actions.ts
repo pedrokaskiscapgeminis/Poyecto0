@@ -20,5 +20,5 @@ export const Delete = createAction(
   props<{ carri: CarritoModel }>()
 );
 
-
+export const getCartItems = createAction('[Cart List] Get cart items');
 

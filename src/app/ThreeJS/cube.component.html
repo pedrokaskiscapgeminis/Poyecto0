@@ -1,13 +1,14 @@
 <ngt-mesh
   (beforeRender)="onCubeBeforeRender($event)"
   (click)="active = !active"
+  
   (pointerover)="hovered = true"
   (pointerout)="hovered = false"
 
-  [position]="[-2, 0, 0]"
+  [position]="[0, 0, 0]"
   
 >
-  <ngt-box-geometry [args]="[1,1,1]"></ngt-box-geometry>
+  <ngt-box-geometry [args]="[3,3,3]"></ngt-box-geometry>
   <ngt-mesh-standard-material
     [color]="hovered ? 'white' : 'tomato'"
     [map] = "texture$ | async"
