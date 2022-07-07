@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { AppState } from 'src/app/core/models/app.state';
 import { PokemonService } from 'src/app/services/pokemon.service';
 import { Delete, loadCarrito } from 'src/app/state/actions/carrito.actions';
-import { decrement } from 'src/app/state/actions/counter.actions';
+
 import { loadDetalles } from 'src/app/state/actions/detalles.actions';
 import { selectListCarrito, selectLoadingCarrito } from 'src/app/state/selectors/carrito.selectors';
 import { selectListDetalles, selectLoadingDetalles } from 'src/app/state/selectors/detalles.selectors';
@@ -26,14 +26,12 @@ export class CarritoComponent implements OnInit {
     this.store.dispatch(loadCarrito());
     this.carrito$ = this.store.select(selectListCarrito);
 
-    this.loading$=this.store.select(selectLoadingDetalles)
+
     this.store.dispatch(loadDetalles())
     this.detalles$ = this.store.select(selectListDetalles);
     
   }
-  onDecrement() {
-    this.store.dispatch(decrement());
-  }
+ 
   DeletePok(carri:any){
     this.store.dispatch(Delete({carri}))
  }

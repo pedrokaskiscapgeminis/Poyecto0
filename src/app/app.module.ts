@@ -9,7 +9,7 @@ import { ListadoComponent } from './components/listado/listado.component';
 import { NavMenuComponent } from './components/nav-menu/nav-menu.component';
 import { CartaPokComponent } from './containers/carta-pok/carta-pok.component';
 import { pokemonsReducer } from './state/reducers/pokemons.reducer';
-import { counterReducer } from './state/reducers/counter.reducer';
+
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { HttpClientModule } from '@angular/common/http';
@@ -61,7 +61,7 @@ import { environment } from 'src/environments/environment';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    StoreModule.forRoot({pokemons: pokemonsReducer, counter: counterReducer,carrito: carritoReducer, detalles: detallesReducer}),
+    StoreModule.forRoot({pokemons: pokemonsReducer,carrito: carritoReducer, detalles: detallesReducer}),
     EffectsModule.forRoot([pokeEffects]),
    
     HttpClientModule,

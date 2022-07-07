@@ -7,7 +7,7 @@ import { NgtTextureLoader } from '@angular-three/soba/loaders';
 import { Store } from "@ngrx/store";
 import { addToCart } from "../state/actions/carrito.actions";
 
-import { increment } from "../state/actions/counter.actions";
+
 import { Observable } from "rxjs";
 import { selectListCarrito } from "../state/selectors/carrito.selectors";
 import { AppState } from "../core/models/app.state";
@@ -29,7 +29,7 @@ export class CubeComponent implements OnInit  {
   }
   @Input() position?: NgtVector3;
   @Input() poke:any
-  
+
   hovered = false;
   hovered1 = false;
   hovered2=false
@@ -40,15 +40,7 @@ export class CubeComponent implements OnInit  {
     
     
   }
-  addToCarrito(carrit:any){
-    
-    
-    this.store.dispatch(addToCart({carrit}));
-    this.carrito$ = this.store.select(selectListCarrito);
-   
-  }
-  onIncrement(incre:any) {
-    this.store.dispatch(increment({incre}));
-  }
+
+ 
 
 }
