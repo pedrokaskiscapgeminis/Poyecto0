@@ -14,13 +14,35 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { HttpClientModule } from '@angular/common/http';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools'
-import { environment } from 'src/environments/environment';
+
 import { CarritoComponent } from './containers/carrito/carrito.component';
 import { BuscadorPipe } from './filtros/buscador.pipe';
 import { ComparadorPipe } from './filtros/comparador.pipe';
 import { pokeEffects } from './state/effects/poke.effects';
 import { carritoReducer } from './state/reducers/carrito.reducer';
 import { detallesReducer } from './state/reducers/detalles.reducers';
+import { CubeComponent } from "./ThreeJS/cube.component";
+import { NgtCanvasModule } from '@angular-three/core';
+import { NgtMeshModule } from '@angular-three/core/meshes';
+import {
+  NgtBoxGeometryModule,
+  NgtConeGeometryModule,
+  NgtPlaneGeometryModule,
+  NgtSphereGeometryModule,
+} from '@angular-three/core/geometries';
+import {
+  NgtMeshBasicMaterialModule,
+  NgtMeshStandardMaterialModule,
+} from '@angular-three/core/materials';
+import {
+  NgtAmbientLightModule,
+  NgtSpotLightModule,
+  NgtPointLightModule,
+  NgtDirectionalLightModule,
+} from '@angular-three/core/lights';
+import { NgtSobaOrbitControlsModule } from '@angular-three/soba/controls';
+import { environment } from 'src/environments/environment';
+
 
 @NgModule({
   declarations: [
@@ -32,7 +54,10 @@ import { detallesReducer } from './state/reducers/detalles.reducers';
     CartaPokComponent,
     CarritoComponent,
     BuscadorPipe,
-    ComparadorPipe
+    CubeComponent,
+    ComparadorPipe,
+
+   
   ],
   imports: [
     BrowserModule,
@@ -46,6 +71,20 @@ import { detallesReducer } from './state/reducers/detalles.reducers';
       logOnly: environment.production, // Restrict extension to log-only mode
       autoPause: true, // Pauses recording actions and state changes when the extension window is not open
     }),
+    NgtCanvasModule,
+    NgtMeshModule,
+    NgtBoxGeometryModule,
+    NgtConeGeometryModule,
+    NgtPlaneGeometryModule,
+    NgtSphereGeometryModule,
+    NgtMeshBasicMaterialModule,
+    NgtMeshStandardMaterialModule,
+    NgtAmbientLightModule,
+    NgtSpotLightModule,
+    NgtPointLightModule,
+    NgtDirectionalLightModule,
+    NgtSobaOrbitControlsModule,
+    HttpClientModule,
     
   ],
   providers: [],

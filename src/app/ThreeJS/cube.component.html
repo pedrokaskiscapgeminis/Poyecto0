@@ -1,0 +1,20 @@
+<ngt-mesh
+  (beforeRender)="onCubeBeforeRender($event)"
+  (click)="active = !active"
+  (pointerover)="hovered = true"
+  (pointerout)="hovered = false"
+
+  [position]="[-2, 0, 0]"
+  
+>
+  <ngt-box-geometry [args]="[1,1,1]"></ngt-box-geometry>
+  <ngt-mesh-standard-material
+    [color]="hovered ? 'white' : 'tomato'"
+    [map] = "texture$ | async"
+    envMapIntensity="0.4"
+    clearcoat="0.8"
+    clearcoatRoughness="0"
+    roughness="3"
+    metalness="0.3"
+  ></ngt-mesh-standard-material>
+</ngt-mesh>
