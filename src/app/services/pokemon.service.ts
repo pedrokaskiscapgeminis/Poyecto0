@@ -6,6 +6,7 @@ import { HttpClient } from '@angular/common/http';
 export class PokemonService {
   private pok:any
   private patron:string = ""
+  private detalles:any
   private carrito:any[] = []
   private urlPokemon = "https://pokeapi.co/api/v2/pokemon"
   constructor(private http:HttpClient) { 
@@ -19,7 +20,11 @@ export class PokemonService {
     
     return this.http.get(`https://pokeapi.co/api/v2/pokemon`);
   }
- 
+  Detalles(name:string){
+    console.log(name)
+    return this.http.get("https://pokeapi.co/api/v2/pokemon/" + name)
+  }
+
 removePokes(Pokes:any){
  this.carrito = this.carrito.filter(p=>p.name != Pokes.name)
 }

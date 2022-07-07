@@ -37,6 +37,5 @@ export class CartaPokComponent implements OnInit {
   }
   onIncrement(incre:any) {
     this.store.dispatch(increment({incre}));
-    console.log(incre)
   }
 }
