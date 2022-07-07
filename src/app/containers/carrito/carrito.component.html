@@ -14,7 +14,7 @@
          
         <h5 class="card-title"> {{carrito.name}} </h5>
         <button (click)="onDecrement();DeletePok(carrito)" class="btn btn-outline-primary" type="button" id="button-addon2">Eliminar</button>
-        <button (click)="Detalles(carrito.name)" class="btn btn-outline-primary" type="button" id="button-addon2">Detalles</button>
+
         <p class="card-text fw-bold"></p>
   </div>
   {{detalles$|async|json}}
